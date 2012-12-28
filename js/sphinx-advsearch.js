@@ -10,6 +10,8 @@ var SphinxAdvSearch = function(config){
 }
 
 SphinxAdvSearch.prototype = {
+    remove_button_html: "X",
+    remove_button_html_disabled: " ",
     submit: function(){
         // submit has been called, generate a query string and pass to the callback
         var sphinx = this;
@@ -47,6 +49,7 @@ SphinxAdvSearch.prototype = {
 
         var field_html = sphinx.new_field();
         sphinx.el.find(".sphinx_fields").append(field_html);
+        sphinx.set_remove_html();
     },
     field_list: function(){
         // generate the field list of "<option>" elements for the dropdown
@@ -59,6 +62,11 @@ SphinxAdvSearch.prototype = {
         });
         return options;
     },
+    field_count: function(){
+        // return the current number of fields
+        var sphinx = this;
+        return sphinx.el.find(".sphinx_field").length;
+    },
     add_button: function(){
         // generate a new DOM object for the "Add" button
         var sphinx = this;
@@ -67,9 +75,20 @@ SphinxAdvSearch.prototype = {
         button.click(function(){
             // "Add" clicked
             sphinx.el.find(".sphinx_fields").append(sphinx.new_field());
+            sphinx.set_remove_html();
             button.remove();
         });
         return button;
+    },
+    set_remove_html: function(){
+        // set the html of the "X" buttons, or empty them if there is only one field shown
+        var sphinx = this;
+
+        if (sphinx.field_count() > 1){
+            sphinx.el.find(".sphinx_field_remove").html(sphinx.remove_button_html);
+        } else {
+            sphinx.el.find(".sphinx_field_remove").html(sphinx.remove_button_html_disabled);
+        }
     },
     new_field: function(field, label){
         // generate a DOM object for a new field
@@ -92,6 +111,7 @@ SphinxAdvSearch.prototype = {
                 // need to add a new "Add" button to the last field
                 sphinx.el.find(".sphinx_field").last().append(sphinx.add_button());
             }
+            sphinx.set_remove_html();
         });
 
         return field_template;
