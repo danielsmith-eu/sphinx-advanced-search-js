@@ -10,8 +10,6 @@ var SphinxAdvSearch = function(config){
 }
 
 SphinxAdvSearch.prototype = {
-    remove_button_html: "X",
-    remove_button_html_disabled: " ",
     submit: function(){
         // submit has been called, generate a query string and pass to the callback
         var sphinx = this;
@@ -85,9 +83,9 @@ SphinxAdvSearch.prototype = {
         var sphinx = this;
 
         if (sphinx.field_count() > 1){
-            sphinx.el.find(".sphinx_field_remove").html(sphinx.remove_button_html);
+            sphinx.el.find(".sphinx_field_remove").addClass("sphinx_remove_icon");
         } else {
-            sphinx.el.find(".sphinx_field_remove").html(sphinx.remove_button_html_disabled);
+            sphinx.el.find(".sphinx_field_remove").removeClass("sphinx_remove_icon");
         }
     },
     new_field: function(field, label){

@@ -34,9 +34,11 @@
 }
 
 .sphinx_field_remove {
-    width: 25px;
+    width: 24px;
     float: left;
     margin: 3px;
+    min-width: 24px;
+    min-height: 24px;
 }
 
 .sphinx_field_add {
@@ -58,5 +60,11 @@
 .sphinx_submit button {
     margin-top: 10px;
     padding: 10px;
+}
+
+.sphinx_remove_icon {
+    background-image: url(img/x-icon.png);
+    background-repeat: no-repeat;
+    background-position: 5px 5px;
 }
 
