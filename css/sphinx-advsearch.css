@@ -1,0 +1,62 @@
+
+.sphinx_search {
+    width: 450px;
+    background-color: #eee;
+    border-radius: 5px 5px 5px 5px;
+    padding: 10px;
+}
+
+.sphinx_inner {
+    width: 100%;
+}
+
+.sphinx_title {
+    margin-bottom: 10px;
+}
+
+.sphinx_field {
+    clear: both;
+}
+
+.sphinx_field_dropdown {
+    float: left;
+    padding: 3px;
+}
+
+.sphinx_field_dropdown select {
+    width: 150px;
+}
+
+.sphinx_field_query {
+    width: 200px;
+    margin: 3px;
+    float: left;
+}
+
+.sphinx_field_remove {
+    width: 25px;
+    float: left;
+    margin: 3px;
+}
+
+.sphinx_field_add {
+    width: 40px;
+    float: right;
+    margin: 3px;
+}
+
+.sphinx_fields {
+    margin-bottom: 10px;
+}
+
+.sphinx_submit {
+    width: 100%;
+    clear: both;
+    text-align: right;
+}
+
+.sphinx_submit button {
+    margin-top: 10px;
+    padding: 10px;
+}
+
